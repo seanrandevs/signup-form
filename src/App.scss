@@ -55,10 +55,15 @@
     cursor: pointer;
   }
 
-  .error {
-    border: 1px red solid;
+  .offscreen {
+    position: absolute;
+    left: -9999px;
   }
 
-  .success {
-    border: 1px green solid;
+  .errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
   }
