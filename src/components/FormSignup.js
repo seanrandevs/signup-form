@@ -1,7 +1,10 @@
+import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 import useForm from "./useForm";
+import validate from "./validateInfo";
 
-const FormSignup = () => {
-    const { handleChange, values, handleSubmit } = useForm();
+const FormSignup = ({ submitForm }) => {
+    const { handleChange, values, handleSubmit, errors } = 
+    useForm(submitForm, validate);
 
   return (
   <div className="container">
@@ -12,41 +15,40 @@ const FormSignup = () => {
        type='text'
        name="username"
        placeholder='Enter your username'
-       id="username"
        value={values.username}
        onChange={handleChange}
        />
+       {errors.username && <p>{errors.username}</p>}
        <input
        type='email'
        name="email"
        placeholder="Enter your Email"
-       id="email"
        value={values.email}
        onChange={handleChange}
        />
+       {errors.email && <p>{errors.email}</p>}
        <input
        type="password"
        name="password"
        placeholder='Enter your password'
-       id="password"
        value={values.password}
        onChange={handleChange}
        />
+       {errors.password && <p>{errors.password}</p>}
        <input
        type="password"
        placeholder="Confirm your password"
-       id="password2"
        name="password2"
        value={values.password2}
        onChange={handleChange}
        />
+       {errors.password2 && <p>{errors.password2}</p>}
+       <button className="btn" 
+       type="submit">
+       Sign up
+       </button>
 
-       <input 
-       className="btn"
-       type="submit"
-       />
-
-       <h5>Already have an account? Login <a href="#">here</a></h5>
+       <span>Already have an account? Login <a href="#">here</a></span>
     </form>
   </div>
   )
