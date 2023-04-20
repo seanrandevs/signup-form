@@ -1,4 +1,3 @@
-import { toHaveErrorMessage } from "@testing-library/jest-dom/dist/matchers";
 import useForm from "./useForm";
 import validate from "./validateInfo";
 
@@ -48,7 +47,7 @@ const FormSignup = ({ submitForm }) => {
        Sign up
        </button>
 
-       <span>Already have an account? Login <a href="#">here</a></span>
+       <span>Already have an account? Login <a href="dummylink">here</a></span>
     </form>
   </div>
   )
