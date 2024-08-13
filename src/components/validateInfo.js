@@ -2,9 +2,14 @@ const validateInfo = (values) => {
   let errors = {};
 
  // Username
-  if(!values.username.trim()) {
-    errors.username = "Username required"
+  if(!values.firstname.trim()) {
+    errors.firstname = "First Name required"
   }
+
+  if(!values.lastname.trim()) {
+    errors.lastname = "Last Name required"
+  }
+
   // Email
   if(!values.email) {
     errors.email = "Email required"
@@ -16,10 +21,10 @@ const validateInfo = (values) => {
     errors.password = "Password needs to be 8 or more characters"
   }
 
-  if(!values.password2) {
-    errors.password2 = "Password is required"
-  } else if(values.password2 !== values.password) {
-    errors.password2 = "Passwords do not match"
+  if(!values.confirmPassword) {
+    errors.confirmPassword = "Please Confirm Password"
+  } else if(values.confirmPassword !== values.password) {
+    errors.confirmPassword = "Passwords do not match"
   }
 
   return errors;

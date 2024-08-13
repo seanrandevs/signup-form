@@ -12,12 +12,20 @@ const FormSignup = ({ submitForm }) => {
     <form onSubmit={handleSubmit}>
        <input
        type='text'
-       name="username"
-       placeholder='Enter your username'
-       value={values.username}
+       name="firstname"
+       placeholder='Enter your firstname'
+       value={values.firstname}
        onChange={handleChange}
        />
-       {errors.username && <p>{errors.username}</p>}
+       {errors.firstname && <p>{errors.firstname}</p>}
+       <input
+       type='text'
+       name="lastname"
+       placeholder='Enter your lastname'
+       value={values.lastname}
+       onChange={handleChange}
+       />
+       {errors.lastname && <p>{errors.lastname}</p>}
        <input
        type='email'
        name="email"
@@ -37,11 +45,11 @@ const FormSignup = ({ submitForm }) => {
        <input
        type="password"
        placeholder="Confirm your password"
-       name="password2"
-       value={values.password2}
+       name="confirmPassword"
+       value={values.confirmPassword}
        onChange={handleChange}
        />
-       {errors.password2 && <p>{errors.password2}</p>}
+       {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
        <button className="btn" 
        type="submit">
        Sign up
