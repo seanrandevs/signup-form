@@ -54,7 +54,9 @@ const useForm = (callback, validate) => {
   }, [errors, isSubmitting, callback]);
 
   return{ handleChange, values, handleSubmit, errors };
+
 };
+
 
 export default useForm;
 

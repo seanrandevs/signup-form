@@ -1,5 +1,7 @@
 import useForm from "./useForm";
 import validate from "./validateInfo";
+import { Link } from "react-router-dom";
+
 
 const FormSignup = ({ submitForm }) => {
     const { handleChange, values, handleSubmit, errors } = 
@@ -55,7 +57,7 @@ const FormSignup = ({ submitForm }) => {
        Sign up
        </button>
 
-       <span>Already have an account? Login <a href="dummylink">here</a></span>
+       <span>Already have an account? Login <Link to={"/Login"}>here</Link> </span>
     </form>
   </div>
   )
