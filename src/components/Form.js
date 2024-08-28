@@ -1,39 +1,22 @@
-import { useState, useEffect } from "react";
-import FormSignup from "./FormSignup";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import FormSuccess from "./FormSuccess";
+import Login from "./Login";
 
-const Form = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const Form = ({ isLoginSuccessful }) => {
+  const navigate = useNavigate();
 
-  const [data, setData] = useState([]);
+  useEffect(() => {
+    if (!isLoginSuccessful) {
+      navigate("/login");
+    }
+  }, [isLoginSuccessful, navigate]);
 
-    useEffect(() => {
-      const apiUrl = "http://localhost:5047/api/UserForm/GetUsers";
-  
-      fetch(apiUrl)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((userData) => {
-          setData(userData);
-        })
-    }, []);
-    
-    console.log(data);
-
-
-  const submitForm = () => {
-    setIsSubmitted(true)
-  }
-   return (
+  return (
     <div>
-      {!isSubmitted ? <FormSignup submitForm={submitForm} /> :
-       <FormSuccess />}
+      {isLoginSuccessful ? <FormSuccess /> : <Login />}
     </div>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

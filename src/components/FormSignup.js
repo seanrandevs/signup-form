@@ -1,11 +1,16 @@
 import useForm from "./useForm";
 import validate from "./validateInfo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
-const FormSignup = ({ submitForm }) => {
+const FormSignup = () => {
+
+  const navigate = useNavigate(); // Initialize navigate
     const { handleChange, values, handleSubmit, errors } = 
-    useForm(submitForm, validate);
+    useForm(() => { 
+      console.log("User added successfully"); 
+      navigate("/login"); // Redirect to login after successful sign-up
+    }, validate);
 
   return (
   <div className="container">
@@ -56,9 +61,8 @@ const FormSignup = ({ submitForm }) => {
        type="submit">
        Sign up
        </button>
-
-       <span>Already have an account? Login <Link to={"/Login"}>here</Link> </span>
     </form>
+    <span>Already have an account? <Link to={"/login"}>Login!</Link> </span>
   </div>
   )
 }
